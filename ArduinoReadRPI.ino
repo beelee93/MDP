@@ -9,7 +9,11 @@
 void loop() {
   // put your main code here, to run repeatedly:
   if(Serial.available()){
-      light(Serial.read()-'0');
+      int n = Serial.read()-'0';
+      int v1 = Serial.read()-'0';
+      int v2 = Serial.read()-'0';
+      int v3 = Serial.read()-'0';
+      go(n,v1*100+v2*10+v3);
     }
     delay(500);
 }
@@ -22,3 +26,18 @@ void light(int n){
     digitalWrite(13,LOW);
   }
   }
+
+void go(int n,int v){
+ if(n == 0){
+  //gostright by v distance
+ }
+ if(n == 1){
+  //goback by v distance
+ }
+ if(n == 2){
+  //rotate counter-clockwise by v degree
+ }
+ if(n == 3){
+  //rotate clockwise by v degree
+ }
+}
